@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="thumb-container">
+      <img class="thumb active" src="images/thumb1.jpg" alt="thumb-img">
+      <img class="thumb" src="images/thumb2.jpg" alt="thumb-img">
+      <img class="thumb" src="images/thumb3.jpg" alt="thumb-img">
+      <img class="thumb" src="images/thumb4.jpg" alt="thumb-img">
+      <img class="thumb" src="images/thumb5.jpg" alt="thumb-img">
+    </div>
+    
+    <div class="main-container">
+      <img class="main-image" src="images/thumb1.jpg" alt="main-img">
+      
+      <div class="product-info">
+        <h2>Shoe Name</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio eos eveniet maxime tempore deleniti? Possimus reiciendis reprehenderit doloribus libero! Repellendus!</p>
+        <button class="add-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const thumbImages = document.querySelectorAll(".thumb");
+
+    thumbImages.forEach(img => {
+      img.addEventListener("click", () => {
+        document.querySelector(".thumb-container .active").classList.remove("active");
+        img.classList.add("active");
+        document.querySelector(".main-image").src = img.src;
+      });
+    });
+
+    document.querySelector(".add-cart-btn").addEventListener("click", () => {
+      alert("Item added to cart!");
+    });
+  </script>
+</body>
+</html>
